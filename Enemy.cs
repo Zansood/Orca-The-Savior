@@ -6,7 +6,7 @@ using System;
 
 public class Enemy : MonoBehaviour
 {
-
+    //Set enemy goals And manage the HP of the enemy.
     [SerializeField] float closeDistance;
     [SerializeField] float longDistance;
     [SerializeField] float EXlongDistance;
@@ -20,13 +20,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public PlayerCtrl playerCtrl;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+   
     void Update()
     {
         Panel.SetActive(false);
@@ -53,6 +47,7 @@ public class Enemy : MonoBehaviour
             closeDistance = 0;
             EXlongDistance = 0;
         }
+        
         //flip sprite 
         checkPlayer();
         if (transform.position.x > player.position.x)

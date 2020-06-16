@@ -8,10 +8,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Shop : MonoBehaviour
 {
+    //Script to upgrade various characters.
     public Gamedata data;
     public Text txtcoinCount;
     string datafilePath;
-    //public static PlayerCtrl playerCtrl;
     public Text hp, stam, hung;
     BinaryFormatter bf;
 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    //Control the movement of the player character.
     public static PlayerCtrl instance;
     Rigidbody rb;
     CharacterController charCtrl;
@@ -51,7 +52,6 @@ public class PlayerCtrl : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
         transform.position = transform.position + new Vector3(moveX * moveSpeed * Time.deltaTime, moveY * moveSpeed * Time.deltaTime, 0);
-        //rb.velocity = new Vector3(moveX * runspeed, moveY * runspeed, 0);
 
         Run();
         hungryStatus();
@@ -62,14 +62,12 @@ public class PlayerCtrl : MonoBehaviour
             rb.drag = 0.5f;
             rb.useGravity = false;
             sliderHealth.value += 0.0003f;
-            //rb.velocity = new Vector3(moveX * runspeed, moveY * runspeed, 0);
         }
         else if (transform.position.y <= 0)
         {
             rb.drag = 0;
             rb.useGravity = true;
             sliderHealth.value -= 0.0008f;
-            //rb.velocity = new Vector3(moveX, moveY, 0);
         }
 
         if (sliderStamina.value <= 0)
@@ -100,13 +98,11 @@ public class PlayerCtrl : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(moveX * moveSpeed * 5 * Time.deltaTime, moveY * moveSpeed * 5 * Time.deltaTime, 0);
             ReduceStamina();
-            //rb.velocity = new Vector3(moveX * moveSpeed * 5, moveY * moveSpeed * 5, 0);
         }
         else
         {
             IncreaseStamina();
             transform.position = transform.position + new Vector3(moveX * moveSpeed * Time.deltaTime, moveY * moveSpeed * Time.deltaTime, 0);
-            //rb.velocity = new Vector3(moveX * moveSpeed, moveY * moveSpeed, 0);
         }
     }
 
@@ -136,7 +132,6 @@ public class PlayerCtrl : MonoBehaviour
                 panel.SetActive(true);
             if (Time.timeScale == 1)
                 Time.timeScale = 0;
-            //rb.constraints = RigidbodyConstraints.FreezePosition;
         }
         else if(sliderHealth.value > 0)
         {
@@ -152,10 +147,6 @@ public class PlayerCtrl : MonoBehaviour
         {
             sliderHealth.value -= 0.001f;
         }
-        /*if (sliderHungry.value >= sliderHungry.maxValue -0.3f)
-        {
-            sliderHealth.value += 0.1f;
-        }*/
     }
     public void reduceHealthBar(string other)
     {
@@ -177,7 +168,4 @@ public class PlayerCtrl : MonoBehaviour
             sliderHealth.value = sliderHealth.value - amountReduce;
         }
     }
-
-   
-
 }

@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class HitCtrl : MonoBehaviour
 {
+    //Control of collisions with objects and saving and loading
     public GenerateNPC GNPC;
     public Gamedata data;
     string datafilePath;

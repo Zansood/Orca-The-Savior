@@ -6,19 +6,13 @@ using System;
 
 public class HitPlayer : MonoBehaviour
 {
+    //Control the collision with the enemy.
     public Slider sliderHealthPlayer;
     public Collider Hitbox;
 
-    // Start is called before the first frame update
     void Start()
     {
         Hitbox = GetComponent<Collider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnCollisionEnter(Collision other2)

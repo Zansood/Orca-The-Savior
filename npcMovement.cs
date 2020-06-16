@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class npcMovement : MonoBehaviour
 {
+    //Script control the movement of small fish.
     public float speed = 3.0f;
     [SerializeField] float closeDistance;
     [SerializeField] float longDistance;
@@ -11,36 +12,17 @@ public class npcMovement : MonoBehaviour
     [SerializeField] Transform player;
 
     float distanceToPlayer = Mathf.Infinity;
-
-
     private bool _alive;
-    // Start is called before the first frame update
+
     void Start()
     {
         _alive = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
         checkPlayer();
-            if (_alive)
-        {
-            //transform.Translate(speed * Time.deltaTime,0,0);
-        }
-
-        /*Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        if (Physics.SphereCast(ray, 0.75f, out hit))
-        {           
-            if (hit.distance < obstacleRange)
-            {
-                float angleX = Random.Range(-300, 500);
-                float angleY = Random.Range(-56, 300);
-                transform.Translate(angleX, angleY, 0);
-            }
-        }*/
     }
     public void checkPlayer()
     {
